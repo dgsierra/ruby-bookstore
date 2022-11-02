@@ -6,6 +6,9 @@ class Person
     @id = gets.chomp
     @age = gets.chomp
   end
+  def test
+    "test"
+  end
   def can_use_services?
     @parent_permission or @age >= 18
   end
@@ -21,4 +24,13 @@ class Person
   def age
     @age
   end
+  def age=(new_age)
+    @age = new_age
+  end
+  def name=(new_name)
+    @name = new_name
+  end
 end
+
+my_class = Person.new
+p my_class.test
