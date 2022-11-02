@@ -1,36 +1,20 @@
 class Person
-  def initialize
-    @name = "Unknown"
-    @parent_permission = true
-    @name = gets.chomp
-    @id = gets.chomp
-    @age = gets.chomp
-  end
-  def test
-    "test"
-  end
-  def can_use_services?
-    @parent_permission or @age >= 18
-  end
-  def validate_name
-    @name != ""
-  end
-  def id
-    @id
-  end
-  def name
-    @name
-  end
-  def age
-    @age
-  end
-  def age=(new_age)
-    @age = new_age
-  end
-  def name=(new_name)
-    @name = new_name
-  end
-end
+  attr_accessor :name, :age
+  attr_reader :id, :parent_permission
 
-my_class = Person.new
-p my_class.test
+  def initialize(age, name = 'Unknown', parent_permission = true)
+    @name = name.chomp
+    @parent_permission = parent_permission
+    @id = 'Unknown'
+    @age = 19
+  end
+
+  def of_age? # Name changed of is_of_age? to avoid Rubocop error
+    @age >= 18
+  end
+
+  def can_use_services?
+    @parent_permission or is_of_age?
+  end
+  private :of_age?
+end
