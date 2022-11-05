@@ -25,7 +25,3 @@ class Person < Nameable
   end
   private :of_age?
 end
-
-perso = Person.new(20,'', parent_permission: true)
-
-p perso.correct_name
