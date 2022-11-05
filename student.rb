@@ -1,6 +1,7 @@
 require_relative 'person'
 class Student < Person
   def initialize
+    super
     @classroom = 'Unknown'
   end
 
