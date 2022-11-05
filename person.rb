@@ -19,7 +19,3 @@ class Person
   end
   private :of_age?
 end
-
-myperson = Person.new(19, 'Daniel', parent_permission: false)
-
-p myperson.parent_permission
