@@ -3,7 +3,7 @@ class Person
   attr_reader :id, :parent_permission
 
   def initialize(age, name = 'Unknown', parent_permission: true)
-    @name = name.chomp
+    @name = name
     @parent_permission = parent_permission
     @id = 'Unknown'
     @age = age

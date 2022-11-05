@@ -1,7 +1,7 @@
 require_relative 'person'
 class Student < Person
   def initialize
-    super
+    super(age, name)
     @classroom = 'Unknown'
   end
 
@@ -9,3 +9,7 @@ class Student < Person
     '¯(ツ)/¯'
   end
 end
+
+obj = Student.new
+
+p obj.play_hooky
