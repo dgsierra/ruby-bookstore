@@ -12,7 +12,3 @@ class Teacher < Person
     true
   end
 end
-
-tom = Teacher.new(20, 'nombre del pibe', 'test')
-
-p tom.age
