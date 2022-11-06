@@ -7,7 +7,7 @@ class App
   def initialize
     @people = []
     @books = []
-    @@id = 0
+    @id = 0
   end
 
   def run
@@ -75,10 +75,10 @@ class App
     case person_selected
     when 1
       create_student
-      @@id += 1
+      @id += 1
     when 2
       new_teacher
-      @@id += 1
+      @id += 1
     else
       puts 'Invalid Selection. Returning to main menu'
       nil
@@ -89,7 +89,7 @@ class App
     print 'Age: '
     age = gets.chomp.to_i
     if age <= 0
-      @@id -= 1
+      @id -= 1
       return puts 'Wrong input for age. Returning to main menu'
     end
     print 'Name: '
@@ -102,7 +102,7 @@ class App
     when 'N', 'NO'
       permission = false
     end
-    student = Student.new(@@id, age, nil, name, parent_permission: permission)
+    student = Student.new(@id, age, nil, name, parent_permission: permission)
     @people << student
     puts 'Person created successfully'
   end
@@ -111,7 +111,7 @@ class App
     print 'Age: '
     age = gets.chomp.to_i
     if age <= 18
-      @@id -= 1
+      @id -= 1
       return puts 'Wrong input for age all teachers should be at least 18. Returning to main menu'
     end
     print 'Name: '
@@ -119,7 +119,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp.strip.capitalize
     p "test teacher age: #{age}"
-    teacher = Teacher.new(@@id, age, name, specialization)
+    teacher = Teacher.new(@id, age, name, specialization)
     @people << teacher
     puts 'Person created successfully'
   end
