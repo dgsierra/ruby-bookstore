@@ -3,7 +3,7 @@ require_relative './teacher'
 require_relative './books'
 require_relative 'rental'
 
-class App
+class Main
   def initialize
     @people = []
     @books = []
@@ -18,7 +18,7 @@ class App
       selection = gets.chomp.strip.to_i
       do_task(selection)
     end
-    puts 'Thank you for using this app!'
+    puts 'Thank you for using this Main!'
   end
 
   def display_options
@@ -171,8 +171,8 @@ class App
 end
 
 def main
-  app = App.new
-  app.run
+  main = Main.new
+  main.run
 end
 
 main
