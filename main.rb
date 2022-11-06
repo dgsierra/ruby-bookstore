@@ -7,7 +7,7 @@ class App
   def initialize
     @people = []
     @books = []
-    @@id = 50
+    @@id = 0
   end
 
   def run
