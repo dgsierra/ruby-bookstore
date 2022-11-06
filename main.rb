@@ -79,7 +79,7 @@ class App
       create_student
       @@id += 1
     when 2
-      create_teacher
+      new_teacher
       @@id += 1
     else
       puts 'Invalid Selection. Returning to main menu'
@@ -109,7 +109,7 @@ class App
     puts 'Person created successfully'
   end
 
-  def create_teacher
+  def new_teacher
     print 'Age: '
     age = gets.chomp.to_i
     if age <= 0
