@@ -31,3 +31,7 @@ class Person < Nameable
   end
   private :of_age?
 end
+
+test2 = Person.new(1, 20, 'test')
+
+p test2.new_rental('2021-01-01', 'test')
