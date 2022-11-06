@@ -166,6 +166,7 @@ class Main
     puts 'Rentals: '
     @people.each do |person|
       next unless person.id == id
+
       person.rentals.each do |rental|
         puts %(Date: #{rental.date}, Book "#{rental.book.title}" by #{rental.book.author})
       end
