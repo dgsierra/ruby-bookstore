@@ -71,7 +71,6 @@ class App
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     person_selected = gets.chomp.strip.to_i
-
     case person_selected
     when 1
       create_student
@@ -88,9 +87,8 @@ class App
   def create_student
     print 'Age: '
     age = gets.chomp.to_i
-    if age <= 0
-      @id -= 1
-      return puts 'Wrong input for age. Returning to main menu'
+    if age <= 0; @id -= 1
+                 return 'Wrong input for age. Returning to main menu'
     end
     print 'Name: '
     name = gets.chomp.strip.capitalize
