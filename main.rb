@@ -150,10 +150,14 @@ class Main
     list_all_people
     person_selected = gets.chomp.to_i
     puts 'Date (YYYY/MM/DD) : '
-    date = gets.chomp.strip
+    date = gets.chomp.strip.to_s
     p 'test rental'
-    Rental.new(date, @people[person_selected], @books[book_selected])
-    puts 'Rental created successfully'
+    if !@people[person_selected].nil? || !@books[book_selected].nil?
+      Rental.new(date, @books[book_selected], @people[person_selected])
+      puts 'Rental created successfully'
+    else
+      'Wrong input. Returning to main menu'
+    end
   end
 
   def list_person_rentals
@@ -162,7 +166,6 @@ class Main
     puts 'Rentals: '
     @people.each do |person|
       next unless person.id == id
-
       person.rentals.each do |rental|
         puts %(Date: #{rental.date}, Book "#{rental.book.title}" by #{rental.book.author})
       end
