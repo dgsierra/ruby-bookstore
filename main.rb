@@ -33,7 +33,6 @@ class App
     puts '7 - Exit'
   end
 
-
   def do_task(selection)
     case selection
     when 1, 2, 6
@@ -46,7 +45,6 @@ class App
       puts 'Wrong input, please select one of the options from the menu'
     end
   end
-
 
   def list_tasks(selection)
     case selection
@@ -137,10 +135,10 @@ class App
   end
 
   def list_all_people
-    @people.each_with_index { |person, index|
+    @people.each_with_index do |person, index|
       p "test person: #{person.class}"
       puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    }
+    end
   end
 
   def list_all_books
@@ -166,12 +164,13 @@ class App
     print 'ID of person: '
     id = gets.chomp.to_i
     puts 'Rentals: '
-    @people.each { |person|
+    @people.each do |person|
       next unless person.id == id
-      person.rentals.each { |rental|
+
+      person.rentals.each do |rental|
         puts %(Date: #{rental.date}, Book "#{rental.book.title}" by #{rental.book.author})
-    }
-  }
+      end
+    end
   end
 end
 
