@@ -23,7 +23,8 @@ class Person < Nameable
   end
 
   def new_rental(date, book)
-    Rental.new(date, book, self)
+    p self
+    Rental.new(date ,self , book)
   end
 
   def can_use_services?
@@ -33,5 +34,6 @@ class Person < Nameable
 end
 
 test2 = Person.new(1, 20, 'test')
+
 
 p test2.new_rental('2021-01-01', 'test')
