@@ -1,7 +1,7 @@
 require_relative './student'
 require_relative './teacher'
 require_relative './books'
-require_relative ' rental'
+require_relative 'rental'
 
 class App
   def initialize
@@ -66,7 +66,7 @@ class App
     when 4
       create_book
     when 5
-      create_rental
+      new_rental
     end
   end
 
@@ -145,7 +145,7 @@ class App
     @books.each_with_index { |book, index| puts %{#{index}) Title: "#{book.title}", Author: #{book.author}} }
   end
 
-  def create_rental
+  def new_rental
     puts 'Select a book from the following list by number'
     list_all_books
     book_selected = gets.chomp.to_i
