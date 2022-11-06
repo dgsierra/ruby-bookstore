@@ -23,7 +23,6 @@ class Person < Nameable
   end
 
   def new_rental(date, book)
-    p self
     Rental.new(date, self, book)
   end
 

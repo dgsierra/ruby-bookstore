@@ -1,7 +1,7 @@
 require_relative './student'
 require_relative './teacher'
-require_relative './rental'
 require_relative './books'
+require_relative ' rental'
 
 class App
   def initialize
@@ -66,7 +66,7 @@ class App
     when 4
       create_book
     when 5
-      new_rental
+      create_rental
     end
   end
 
@@ -145,7 +145,7 @@ class App
     @books.each_with_index { |book, index| puts %{#{index}) Title: "#{book.title}", Author: #{book.author}} }
   end
 
-  def new_rental
+  def create_rental
     puts 'Select a book from the following list by number'
     list_all_books
     book_selected = gets.chomp.to_i
@@ -155,7 +155,8 @@ class App
     puts
     print 'Date (YYYY/MM/DD) : '
     date = gets.chomp.strip
-    Rental.new(date, @books[book_selected], @people[person_selected])
+    p 'test rental'
+    Rental.new(date, @people[person_selected], @books[book_selected])
     puts 'Rental created successfully'
   end
 
@@ -163,13 +164,12 @@ class App
     print 'ID of person: '
     id = gets.chomp.to_i
     puts 'Rentals: '
-    @people.each do |person|
+    @people.each { |person|
       next unless person.id == id
-
-      person.rentals.each do |rental|
+      person.rentals.each { |rental|
         puts %(Date: #{rental.date}, Book "#{rental.book.title}" by #{rental.book.author})
-      end
-    end
+    }
+  }
   end
 end
 
