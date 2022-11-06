@@ -22,7 +22,6 @@ class App
   end
 
   def display_options
-    puts
     puts 'Please choose an option by enterin a number:'
     puts '1 - List all books'
     puts '2 - List all people'
@@ -79,16 +78,16 @@ class App
       new_teacher
       @id += 1
     else
-      puts 'Invalid Selection. Returning to main menu'
-      nil
+      'Invalid Selection. Returning to main menu'
     end
   end
 
   def create_student
     print 'Age: '
     age = gets.chomp.to_i
-    if age <= 0; @id -= 1
-                 return 'Wrong input for age. Returning to main menu'
+    if age <= 0
+      @id -= 1
+      return 'Wrong input for age. Returning to main menu'
     end
     print 'Name: '
     name = gets.chomp.strip.capitalize
@@ -110,7 +109,7 @@ class App
     age = gets.chomp.to_i
     if age <= 18
       @id -= 1
-      return puts 'Wrong input for age all teachers should be at least 18. Returning to main menu'
+      return 'Wrong input for age all teachers should be at least 18. Returning to main menu'
     end
     print 'Name: '
     name = gets.chomp.strip.capitalize
@@ -150,8 +149,7 @@ class App
     puts 'Select a person from the following list by number (not id)'
     list_all_people
     person_selected = gets.chomp.to_i
-    puts
-    print 'Date (YYYY/MM/DD) : '
+    puts 'Date (YYYY/MM/DD) : '
     date = gets.chomp.strip
     p 'test rental'
     Rental.new(date, @people[person_selected], @books[book_selected])
