@@ -112,14 +112,15 @@ class App
   def new_teacher
     print 'Age: '
     age = gets.chomp.to_i
-    if age <= 0
+    if age <= 18
       @@id -= 1
-      return puts 'Wrong input for age. Returning to main menu'
+      return puts 'Wrong input for age all teachers should be at least 18. Returning to main menu'
     end
     print 'Name: '
     name = gets.chomp.strip.capitalize
     print 'Specialization: '
     specialization = gets.chomp.strip.capitalize
+    p "test teacher age: #{age}"
     teacher = Teacher.new(@@id, age, name, specialization)
     @people << teacher
     puts 'Person created successfully'
@@ -136,9 +137,10 @@ class App
   end
 
   def list_all_people
-    @people.each_with_index do |person, index|
+    @people.each_with_index { |person, index|
+      p "test person: #{person.class}"
       puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
+    }
   end
 
   def list_all_books
