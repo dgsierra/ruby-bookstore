@@ -32,3 +32,17 @@ class App
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
   end
+
+
+  def do_task(selection)
+    case selection
+    when 1, 2, 6
+      list_tasks(selection)
+    when 3, 4, 5
+      create_tasks(selection)
+    when 7
+      nil
+    else
+      puts 'Wrong input, please select one of the options from the menu'
+    end
+  end
