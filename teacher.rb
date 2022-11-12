@@ -3,8 +3,9 @@ class Teacher < Person
   attr_accessor :specialization
   attr_reader :age
 
-  def initialize(age, name, specialization)
-    super(age, name)
+  def initialize(id, age, name, specialization)
+    super(id, age, name, parent_permission: parent_permission)
+    @name = name
     @specialization = specialization
   end
 
@@ -12,7 +13,3 @@ class Teacher < Person
     true
   end
 end
-
-tom = Teacher.new(20, 'nombre del pibe', 'test')
-
-p tom.age

@@ -23,7 +23,6 @@ class Person < Nameable
   end
 
   def new_rental(date, book)
-    p self
     Rental.new(date, self, book)
   end
 
@@ -32,7 +31,3 @@ class Person < Nameable
   end
   private :of_age?
 end
-
-test2 = Person.new(1, 20, 'test')
-
-p test2.new_rental('2021-01-01', 'test')
